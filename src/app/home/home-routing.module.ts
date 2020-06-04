@@ -6,6 +6,12 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage,
+    children: [
+      {
+        path: 'carrito',
+        loadChildren: () => import('../pages/carrito/carrito.module').then(m => m.CarritoPageModule)
+      }
+    ]
   }
 ];
 

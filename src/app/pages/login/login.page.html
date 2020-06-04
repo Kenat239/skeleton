@@ -1,0 +1,7 @@
+<ion-content [fullscreen]="true">
+
+  <ion-input class="border" [(ngModel)] = "this.mensaje" ></ion-input>
+  <span>mensaje: {{mensaje}}</span>
+  <ion-button color="primary" (click)="enviar()"> mandar</ion-button>
+ 
+</ion-content>

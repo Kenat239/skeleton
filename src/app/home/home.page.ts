@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { UsuarioService } from '../services/usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,13 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
 
+  constructor(
+    private useS: UsuarioService,
+    private router: Router
+  ) {}
+
+borrar(){
+  this.useS.logout();
+}
 }
