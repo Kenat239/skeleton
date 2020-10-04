@@ -1,7 +1,23 @@
-<ion-content [fullscreen]="true">
+<ion-content  class="loginContent" >
 
-  <ion-input class="border" [(ngModel)] = "this.mensaje" ></ion-input>
+  <ion-grid>
+    <ion-row>
+      <ion-col size=12>
+        <ion-input type="email" name="email" icon="email" placeholder="correo electronico" [(ngModel)]="this.email"></ion-input>
+      </ion-col>
+      <ion-col size=12>
+        <ion-input type="password" name="password" icon="key" placeholder="contraseña" [(ngModel)]="this.password"></ion-input>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-button class="btn btn-success" (click)=enviar()> Iniciar sesion </ion-button>
+      <div>
+    
+       <p> No tienes cuenta?</p> <a [routerLink]="['/register']"> registrate </a>
+        
+      </div>
+  <!-- <ion-input class="border" [(ngModel)] = "this.mensaje" ></ion-input>
   <span>mensaje: {{mensaje}}</span>
-  <ion-button color="primary" (click)="enviar()"> mandar</ion-button>
+  <ion-button color="primary" (click)="enviar()"> mandar</ion-button>-->
  
 </ion-content>

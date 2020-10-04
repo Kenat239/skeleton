@@ -1,30 +1,37 @@
 import { Injectable } from '@angular/core';
-import { HTTP } from '@ionic-native/http/ngx';
-import { Router } from '@angular/router';
+import {HTTP} from '@ionic-native/http/ngx';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
-  token = 'hola';
+  token: string;
+  email: string;
+  password: string;
+
   constructor(
-    private http: HTTP,
+   private http: HTTP,
     private router: Router
   ) { }
 
-  obtenerfakeToken(msg: string) {
-    const url = 'http://192.168.100.20:5002/usuario/demo';
-
-    return this.http.post(url, {mensaje: msg}, {observe: 'response'});
+  logueado (email: string, password: string) {
+    const url= 'http://192.168.100.20:5002/chat/login';
+    return this.http.post (url, {email: email, password: password}, {observe: 'response'});
   }
 
-
-  estaLogueado() {
-    return (this.token.length > 3) ? true : false;
+  estaLogueado () {
+    return (this.token.length > 3) ? true: false;
   }
 
-  logout(){
+  logout () {
     this.token = '1';
-    this.router.navigate(['/login']);
+    this.router.navigate (['/login']);
   }
+
+  registro (nombre: string, apellido: string, email: string, password: string) {
+    const url= 'http://192.168.100.20:5002/chat/registrar'
+    return this.http.post (url, {nombre: nombre, apellido: apellido, email: email, password: password}, {observe: 'response'});
+  }
+
 }
